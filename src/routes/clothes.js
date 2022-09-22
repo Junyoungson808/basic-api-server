@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 'use strict';
 
 const express = require('express');
@@ -10,6 +11,10 @@ router.post('/food', async (req, res, send) => {
 
   const newClothes = await ClothesModel.create(req.body);
   res.status(200).send(newClothes);
+});
+
+router.get('/food', async (req, res, send) => {
+  console.log('req', req.get);
 });
 
 module.exports = router;
