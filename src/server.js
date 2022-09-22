@@ -1,20 +1,21 @@
 'use strict';
 
 const express = require('express');
-const { sequelizeDatabase, PeopleModel } = require('./models');
-
+const peopleRouter = require('./routes/people');
+const foodRouter = require('./routes/food');
+const clothesRouter = require('./routes/clothes');
+const logger = require('../middleware/logger');
 const PORT = process.env.PORT || 3002;
 
 const app = express();
+app.use(logger);
+app.use(express.json());
+app.use(peopleRouter);
+app.use(foodRouter);
+app.use(clothesRouter);
 
-app.post('/people', (req, res, send) => {
-  console.log('req body', req.body);
 
-  const newPerson = PeopleModel.create(req.body);
-  res.status(200).send(newPerson);
-});
-
-function start(){
+function start() {
   app.listen(PORT, () => console.log('listening on port'));
 }
 
