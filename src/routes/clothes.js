@@ -2,18 +2,18 @@
 'use strict';
 
 const express = require('express');
-const { ClothesModel } = require('../models');
+const { ClothesModel } = require('../models/clothes.schema');
 
 const router = express.Router();
 
-router.post('/food', async (req, res, send) => {
+router.post('/clothes', async (req, res, send) => {
   console.log('req body', req.body);
 
   const newClothes = await ClothesModel.create(req.body);
   res.status(200).send(newClothes);
 });
 
-router.get('/food', async (req, res, send) => {
+router.get('/clothes', async (req, res, send) => {
   console.log('req', req.get);
 });
 

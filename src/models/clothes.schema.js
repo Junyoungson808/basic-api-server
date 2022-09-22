@@ -7,12 +7,12 @@ module.exports = (sequelizeDatabase, DataTypes) => {
       allowNull: false,
     },
     quantity: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     rating: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
   });
 };

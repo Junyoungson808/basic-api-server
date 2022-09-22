@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const { PeopleModel } = require('../models');
+const { PeopleModel } = require('../models/people.schema');
 
 const router = express.Router();
 
