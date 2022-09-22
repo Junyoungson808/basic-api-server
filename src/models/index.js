@@ -2,7 +2,8 @@
 
 require('dotenv').config();
 const { Sequelize, DataTypes } = require('sequelize');
-const peopleSchema = require('./person.schema');
+const foodSchema = require('./food.schema');
+const clothesSchema = require('./clothes.schema');
 
 // 'postgres://localhost:5432/d48-d8-api-app'
 // 'postgres://username:password@localhost:5432/d48-d8-api-app'
@@ -14,9 +15,9 @@ const DATABASE_URL = process.env.NODE_ENV === 'test'
 // instantiates our database
 const sequelizeDatabase = new Sequelize(DATABASE_URL);
 
-//create PeopleModel with our Schema
-const PeopleModel = peopleSchema(sequelizeDatabase, DataTypes);
+//create FoodModel /  ClothesModel with our Schema
+const FoodModel = foodSchema(sequelizeDatabase, DataTypes);
+const ClothesModel = clothesSchema(sequelizeDatabase, DataTypes);
 
 
-
-module.exports = {sequelizeDatabase, PeopleModel};
+module.exports = {sequelizeDatabase, FoodModel, ClothesModel};
