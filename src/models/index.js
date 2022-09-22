@@ -16,7 +16,6 @@ const DATABASE_URL = process.env.NODE_ENV === 'test'
 // instantiates our database
 const sequelizeDatabase = new Sequelize(DATABASE_URL);
 
-
 //create FoodModel /  ClothesModel with our Schema
 const PeopleModel = peopleSchema(sequelizeDatabase, DataTypes);
 const FoodModel = foodSchema(sequelizeDatabase, DataTypes);
