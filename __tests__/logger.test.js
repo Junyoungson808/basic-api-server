@@ -16,7 +16,6 @@ describe('Test Logger Middleware', () => {
   });
   test('Properly logs output', () => {
     logger(req, res, next);
-    console.log('req', req);
     expect(consoleSpy).toHaveBeenCalledWith(`REQUEST: ${req.method}, ${req.originalUrl}`);
   });
   test('Properly calls next()', () => {

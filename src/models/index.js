@@ -2,7 +2,7 @@
 
 require('dotenv').config();
 const { Sequelize, DataTypes } = require('sequelize');
-const peopleSchema = require('./person.schema');
+const peopleSchema = require('./people.schema');
 const foodSchema = require('./food.schema');
 const clothesSchema = require('./clothes.schema');
 
@@ -16,11 +16,21 @@ const DATABASE_URL = process.env.NODE_ENV === 'test'
 // instantiates our database
 const sequelizeDatabase = new Sequelize(DATABASE_URL);
 
-sequelizeDatabase.sync().then(() => console.log('Successful Connection')).catch(err => console.error(err));
 
 //create FoodModel /  ClothesModel with our Schema
 const PeopleModel = peopleSchema(sequelizeDatabase, DataTypes);
 const FoodModel = foodSchema(sequelizeDatabase, DataTypes);
 const ClothesModel = clothesSchema(sequelizeDatabase, DataTypes);
 
-module.exports = {sequelizeDatabase, PeopleModel, FoodModel, ClothesModel};
+sequelizeDatabase.sync()
+  .then(() => {
+    console.log('Successful Connection');
+  })
+  .catch(err => console.error(err));
+
+module.exports = {
+  sequelizeDatabase,
+  PeopleModel,
+  FoodModel,
+  ClothesModel,
+};

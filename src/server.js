@@ -4,7 +4,8 @@ const express = require('express');
 const peopleRouter = require('./routes/people');
 const foodRouter = require('./routes/food');
 const clothesRouter = require('./routes/clothes');
-const logger = require('../middleware/logger');
+const logger = require('./middleware/logger');
+
 const PORT = process.env.PORT || 3002;
 
 const app = express();
