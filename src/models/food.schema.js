@@ -2,11 +2,11 @@
 
 module.exports = (sequelizeDatabase, DataTypes) => {
   return sequelizeDatabase.define('food', {
-    item: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    quantity: {
+    calories: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
